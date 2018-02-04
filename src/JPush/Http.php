@@ -60,7 +60,8 @@ final class Http {
             'Connection: Keep-Alive'
         ));
 
-        $output = curl_exec($ch);
+        curl_debug($ch, is_null($body)?null:json_encode($body), $output, $o_header, $o_body);
+        //$output = curl_exec($ch);
         $response = array();
         $errorCode = curl_errno($ch);
 
